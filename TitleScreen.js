@@ -15,10 +15,10 @@ var TitleScreen = {
     //the create method is run after the preload method
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
-        //adds an image with image 'logo' at (290, 100)
-        this.add.image(290, 100, 'logo');
-        //adds a button with image 'start' at location (200, 180) that calls the method startGame when it is clicked on
-        this.add.button(200, 180, 'start', this.startGame, this);
+        //adds an image with image 'logo' at (475,162.5)
+        this.add.image(475, 162.5, 'logo');
+        //adds a button with image 'start' at location (375,262.5) that calls the method startGame when it is clicked on
+        this.add.button(375, 262.5, 'start', this.startGame, this);
         //makes the background color of the whole screen periwinkle
         game.stage.backgroundColor = '#CCCFFF';
     },
