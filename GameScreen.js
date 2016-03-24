@@ -1,22 +1,37 @@
-var dice = function(){
+var arraymap;
+var dice = function () {
     return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-}
+};
+
+var imagesize = 64;
 
 //creates a GameScreen object
 var GameScreen = {
     
     //the preload method runs first
     //it is where we load our assets
-    preload : function() {
-        //loads an image named 'logo'
+    preload : function () {
+        game.load.image('yellow', 'assets/images/Normal.jpg');
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
     
     //the create method is run after the preload method
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
-        //makes the background color of the whole screen black
-        game.stage.backgroundColor = '#000000';
+        arraymap = [
+            ['normal', 'normal']
+        ];
+        console.log(arraymap[0]);
+        for (var row = 0; row<arraymap.length; row++) 
+        {for (var column = 0; column < arraymap[row].length; column ++)
+                if (arraymap [row][column] === 'normal') 
+                {
+                    console.log('in');
+                    game.add.sprite(column*imagesize, row*imagesize,'yellow');
+                }
+        }
+            
+
         
         //starts the physics system for the game
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -60,3 +75,4 @@ var GameScreen = {
 
     
 };
+    var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
