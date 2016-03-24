@@ -8,6 +8,8 @@ var TitleScreen = {
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
         //loads an image named 'start'
         game.load.image('start', '/assets/images/start.png');
+        game.load.image('bg', '/assets/images/Color Karma.jpg');
+
     },
     
     //the create method is run after the preload method
