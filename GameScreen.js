@@ -3,7 +3,7 @@ var dice = function () {
     return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 };
 
-var imagesize = 64;
+var imagesize = 200;
 
 //creates a GameScreen object
 var GameScreen = {
@@ -12,25 +12,47 @@ var GameScreen = {
     //it is where we load our assets
     preload : function () {
         game.load.image('yellow', 'assets/images/Normal.jpg');
+        game.load.image('green', 'assets/images/Buff.jpg');
+        game.load.image('red', 'assets/images/Cripple.jpg');
+        game.load.image('blue', 'assets/images/Teleport.jpg');
+        game.load.image('purple', 'assets/images/Debuff.jpg');
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
     
     //the create method is run after the preload method
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
-        arraymap = [
-            ['normal', 'normal']
+        this.arraymap = [
+            ['normal', 'normal', 'cripple'],
+            ['debuff', 'teleport', 'buff']
         ];
-        console.log(arraymap[0]);
-        for (var row = 0; row<arraymap.length; row++) 
-        {for (var column = 0; column < arraymap[row].length; column ++)
-                if (arraymap [row][column] === 'normal') 
+        
+        console.log(this.arraymap[0][0]);
+        for (var row = 0; row<2; row++) {
+            for (var column = 0; column < 3; column ++) {
+                debugger;
+                if (this.arraymap[row][column] === 'normal') 
                 {
-                    console.log('in');
-                    game.add.sprite(column*imagesize, row*imagesize,'yellow');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'yellow');
                 }
+                if (this.arraymap[row][column] ==='buff')
+                    {
+                    this.temp = game.add.sprite(column*200, row*imagesize,'green');
+                    }
+                if (this.arraymap[row][column] ==='debuff') {
+                    this.temp = game.add.sprite(column*200, row*imagesize,'purple');
+                }
+                if (this.arraymap[row][column] ==='teleport'){
+                    this.temp = game.add.sprite(column*200, row*imagesize,'blue');
+                }
+                if (this.arraymap[row][column] ==='cripple'){
+                    this.temp = game.add.sprite(column*200, row*10,'red');
+                }
+                this.temp.scale.x = 0.1;
+                this.temp.scale.y = 0.1;
         }
-            
+         
+    }
 
         
         //starts the physics system for the game
@@ -73,6 +95,6 @@ var GameScreen = {
     
     }
 
-    
+//    this.tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 };
-    var tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    
