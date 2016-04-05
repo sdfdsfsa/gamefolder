@@ -18,9 +18,9 @@ var TitleScreen = {
         //adds an image with image 'logo' at (475,162.5)
         this.add.image(475, 162.5, 'logo');
         //adds a button with image 'start' at location (375,262.5) that calls the method startGame when it is clicked on
-        this.add.button(375, 262.5, 'start', this.startGame, this);
+        this.add.button(250, 262.5, 'start', this.startGame, this);
 		
-		this.add.button(500, 262.5, 'start', this.rules, this);
+		this.add.button(550, 262.5, 'start', this.rules, this);
         //makes the background color of the whole screen periwinkle
         game.stage.backgroundColor = '#CCCFFF';
     },
@@ -33,7 +33,6 @@ var TitleScreen = {
     },
 	
 	rules: function() {
-		//this.state.start('RulesScreen');
         window.location.href = "rules.html";
 	}
     

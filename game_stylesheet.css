@@ -24,3 +24,8 @@ p {
      1px 1px 0 #000;
     
 }
+
+div {
+    height: 500px;
+    width: 1050px;
+}
