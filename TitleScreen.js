@@ -33,7 +33,8 @@ var TitleScreen = {
     },
 	
 	rules: function() {
-		this.state.start('RulesScreen');
+		//this.state.start('RulesScreen');
+        window.location.href = "rules.html";
 	}
     
 };
