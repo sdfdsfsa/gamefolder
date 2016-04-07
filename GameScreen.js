@@ -1,7 +1,5 @@
 var arraymap;
-var dice = function () {
-    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-};
+
 
 var imagesize = 200;
 
@@ -99,10 +97,7 @@ var GameScreen = {
         } else { //if no arrow keys are being pressed, stop moving
             this.mc.body.velocity.x = 0;
             this.mc.body.velocity.y = 0;
-        }
-    
+        }   
     }
-
-//    this.tween = game.add.tween(aliens).to( { y: 300}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 };
     
