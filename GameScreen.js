@@ -11,11 +11,11 @@ var GameScreen = {
     //the preload method runs first
     //it is where we load our assets
     preload : function () {
-        game.load.image('yellow', 'assets/images/Normal.jpg');
-        game.load.image('green', 'assets/images/Buff.jpg');
-        game.load.image('red', 'assets/images/Cripple.jpg');
-        game.load.image('blue', 'assets/images/Teleport.jpg');
-        game.load.image('purple', 'assets/images/Debuff.jpg');
+        game.load.image('normal', 'assets/images/Normal.jpg');
+        game.load.image('buff', 'assets/images/Buff.jpg');
+        game.load.image('cripple', 'assets/images/Cripple.jpg');
+        game.load.image('teleport', 'assets/images/Teleport.jpg');
+        game.load.image('debuff', 'assets/images/Debuff.jpg');
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
     
@@ -23,8 +23,16 @@ var GameScreen = {
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         this.arraymap = [
-            ['normal', 'normal', 'cripple'],
-            ['debuff', 'teleport', 'buff']
+            ['normal', 'debuff' 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
+            ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
+            ['buff', 'normal', 'normal', 'teleport4', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'buff'],
+            ['normal', 'normal', 'teleport3', 'debuff', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff'],
+            ['normal', 'debuff', 'normal', 'normal', 'normal', 'teleport2', 'debuff', 'normal', 'normal', 'normal'],
+            ['normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'normal', 'teleport3', 'normal', 'normal'],
+            ['teleport1', 'normal', 'debuff', 'normal', 'normal', 'buff', 'normal', 'normal', 'cripple', 'normal'],
+            ['normal', 'buff', 'normal', 'normal', 'debuff', 'normal', 'teleport2', 'normal', 'normal', 'normal'],
+            ['debuff', 'normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'normal'],
+            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
         ];
         
         console.log(this.arraymap[0][0]);
@@ -95,6 +103,6 @@ var GameScreen = {
     
     }
 
-//    this.tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+//    this.tween = game.add.tween(aliens).to( { y: 300}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 };
     
