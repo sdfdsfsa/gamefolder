@@ -1,5 +1,11 @@
 var arraymap;
+<<<<<<< HEAD
 
+=======
+var dice = function () {
+    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+};
+>>>>>>> master
 
 var imagesize = 200;
 
@@ -9,11 +15,19 @@ var GameScreen = {
     //the preload method runs first
     //it is where we load our assets
     preload : function () {
+<<<<<<< HEAD
         game.load.image('normal', 'assets/images/Normal.jpg');
         game.load.image('buff', 'assets/images/Buff.jpg');
         game.load.image('cripple', 'assets/images/Cripple.jpg');
         game.load.image('teleport', 'assets/images/Teleport.jpg');
         game.load.image('debuff', 'assets/images/Debuff.jpg');
+=======
+        game.load.image('yellow', 'assets/images/Normal.jpg');
+        game.load.image('green', 'assets/images/Buff.jpg');
+        game.load.image('red', 'assets/images/Cripple.jpg');
+        game.load.image('blue', 'assets/images/Teleport.jpg');
+        game.load.image('purple', 'assets/images/Debuff.jpg');
+>>>>>>> master
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
     
@@ -21,6 +35,7 @@ var GameScreen = {
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         this.arraymap = [
+<<<<<<< HEAD
             ['normal', 'debuff' 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
             ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
             ['buff', 'normal', 'normal', 'teleport4', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'buff'],
@@ -31,6 +46,10 @@ var GameScreen = {
             ['normal', 'buff', 'normal', 'normal', 'debuff', 'normal', 'teleport2', 'normal', 'normal', 'normal'],
             ['debuff', 'normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'normal'],
             ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
+=======
+            ['normal', 'normal', 'cripple'],
+            ['debuff', 'teleport', 'buff']
+>>>>>>> master
         ];
         
         console.log(this.arraymap[0][0]);
@@ -97,7 +116,15 @@ var GameScreen = {
         } else { //if no arrow keys are being pressed, stop moving
             this.mc.body.velocity.x = 0;
             this.mc.body.velocity.y = 0;
+<<<<<<< HEAD
         }   
     }
+=======
+        }
+    
+    }
+
+//    this.tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+>>>>>>> master
 };
     
