@@ -1,9 +1,9 @@
-var arraymap;
+//var arraymap;
 var dice = function () {
     return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 };
 
-var imagesize = 200;
+var imagesize = 100;
 
 //creates a GameScreen object
 var GameScreen = {
@@ -14,7 +14,7 @@ var GameScreen = {
         game.load.image('normal', 'assets/images/Normal.jpg');
         game.load.image('buff', 'assets/images/Buff.jpg');
         game.load.image('cripple', 'assets/images/Cripple.jpg');
-        game.load.image('teleport', 'assets/images/Teleport.jpg');
+        game.load.image('teleport4', 'assets/images/Teleport.jpg');
         game.load.image('debuff', 'assets/images/Debuff.jpg');
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
@@ -23,16 +23,12 @@ var GameScreen = {
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         this.arraymap = [
-            ['normal', 'debuff' 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
-            ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
-            ['buff', 'normal', 'normal', 'teleport4', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'buff'],
-            ['normal', 'normal', 'teleport3', 'debuff', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff'],
-            ['normal', 'debuff', 'normal', 'normal', 'normal', 'teleport2', 'debuff', 'normal', 'normal', 'normal'],
-            ['normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'normal', 'teleport3', 'normal', 'normal'],
-            ['teleport1', 'normal', 'debuff', 'normal', 'normal', 'buff', 'normal', 'normal', 'cripple', 'normal'],
-            ['normal', 'buff', 'normal', 'normal', 'debuff', 'normal', 'teleport2', 'normal', 'normal', 'normal'],
-            ['debuff', 'normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'normal'],
-            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
+            ['normal', 'debuff', 'normal', 'normal'],
+            ['normal', 'normal', 'cripple', 'normal'],
+            ['buff', 'normal', 'normal', 'normal']
+//            ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff'],
+//            ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal'],
+//            ['buff', 'normal', 'normal', 'normal', 'normal', 'debuff', 'normal', 'buff']
         ];
         
         console.log(this.arraymap[0][0]);
@@ -41,20 +37,20 @@ var GameScreen = {
                 debugger;
                 if (this.arraymap[row][column] === 'normal') 
                 {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'yellow');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'normal');
                 }
                 if (this.arraymap[row][column] ==='buff')
                     {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'green');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'buff');
                     }
                 if (this.arraymap[row][column] ==='debuff') {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'purple');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'debuff');
                 }
-                if (this.arraymap[row][column] ==='teleport'){
-                    this.temp = game.add.sprite(column*200, row*imagesize,'blue');
+                if (this.arraymap[row][column] ==='teleport4'){
+                    this.temp = game.add.sprite(column*200, row*imagesize,'teleport4');
                 }
                 if (this.arraymap[row][column] ==='cripple'){
-                    this.temp = game.add.sprite(column*200, row*10,'red');
+                    this.temp = game.add.sprite(column*200, row*10,'cripple');
                 }
                 this.temp.scale.x = 0.1;
                 this.temp.scale.y = 0.1;
