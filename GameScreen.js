@@ -1,9 +1,9 @@
-var arraymap;
+//var arraymap;
 var dice = function () {
     return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 };
 
-var imagesize = 200;
+var imagesize = 100;
 
 //creates a GameScreen object
 var GameScreen = {
@@ -11,11 +11,11 @@ var GameScreen = {
     //the preload method runs first
     //it is where we load our assets
     preload : function () {
-        game.load.image('yellow', 'assets/images/Normal.jpg');
-        game.load.image('green', 'assets/images/Buff.jpg');
-        game.load.image('red', 'assets/images/Cripple.jpg');
-        game.load.image('blue', 'assets/images/Teleport.jpg');
-        game.load.image('purple', 'assets/images/Debuff.jpg');
+        game.load.image('normal', 'assets/images/Normal.jpg');
+        game.load.image('buff', 'assets/images/Buff.jpg');
+        game.load.image('cripple', 'assets/images/Cripple.jpg');
+        game.load.image('teleport4', 'assets/images/Teleport.jpg');
+        game.load.image('debuff', 'assets/images/Debuff.jpg');
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
     
@@ -23,8 +23,12 @@ var GameScreen = {
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         this.arraymap = [
-            ['normal', 'normal', 'cripple'],
-            ['debuff', 'teleport', 'buff']
+            ['normal', 'debuff', 'normal', 'normal'],
+            ['normal', 'normal', 'cripple', 'normal'],
+            ['buff', 'normal', 'normal', 'normal']
+//            ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff'],
+//            ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal'],
+//            ['buff', 'normal', 'normal', 'normal', 'normal', 'debuff', 'normal', 'buff']
         ];
         
         console.log(this.arraymap[0][0]);
@@ -33,20 +37,20 @@ var GameScreen = {
                 debugger;
                 if (this.arraymap[row][column] === 'normal') 
                 {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'yellow');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'normal');
                 }
                 if (this.arraymap[row][column] ==='buff')
                     {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'green');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'buff');
                     }
                 if (this.arraymap[row][column] ==='debuff') {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'purple');
+                    this.temp = game.add.sprite(column*200, row*imagesize,'debuff');
                 }
-                if (this.arraymap[row][column] ==='teleport'){
-                    this.temp = game.add.sprite(column*200, row*imagesize,'blue');
+                if (this.arraymap[row][column] ==='teleport4'){
+                    this.temp = game.add.sprite(column*200, row*imagesize,'teleport4');
                 }
                 if (this.arraymap[row][column] ==='cripple'){
-                    this.temp = game.add.sprite(column*200, row*10,'red');
+                    this.temp = game.add.sprite(column*200, row*10,'cripple');
                 }
                 this.temp.scale.x = 0.1;
                 this.temp.scale.y = 0.1;
@@ -95,6 +99,6 @@ var GameScreen = {
     
     }
 
-//    this.tween = game.add.tween(aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+//    this.tween = game.add.tween(aliens).to( { y: 300}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 };
     
