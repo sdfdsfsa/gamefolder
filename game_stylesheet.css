@@ -12,3 +12,20 @@ body {
     
     background-size: 1450px 800px;
 }
+
+p {
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif; 
+     color: white;
+    font-size: 20px;
+     text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+    
+}
+
+div {
+    height: 500px;
+    width: 1050px;
+}
