@@ -11,11 +11,11 @@ var GameScreen = {
     //the preload method runs first
     //it is where we load our assets
     preload : function () {
-        game.load.image('yellow', 'assets/images/Normal.jpg');
-        game.load.image('green', 'assets/images/Buff.jpg');
-        game.load.image('red', 'assets/images/Cripple.jpg');
-        game.load.image('blue', 'assets/images/Teleport.jpg');
-        game.load.image('purple', 'assets/images/Debuff.jpg');
+        game.load.image('yellow', 'assets/images/Normal.png');
+        game.load.image('green', 'assets/images/Buff.png');
+        game.load.image('red', 'assets/images/Cripple.png');
+        game.load.image('blue', 'assets/images/Teleport.png');
+        game.load.image('purple', 'assets/images/Debuff.png');
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
     },
     
