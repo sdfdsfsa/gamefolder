@@ -16,7 +16,6 @@ var GameScreen = {
         game.load.image('red', 'assets/images/Cripple.png');
         game.load.image('blue0', 'assets/images/Teleport1.png');
         game.load.image('purple', 'assets/images/Debuff.png');
-        game.load.image('logo', '/assets/images/mission_bit_logo.png');
         game.load.image('blue1', '/assets/images/Teleport2.png');
         game.load.image('blue2', '/assets/images/Teleport3.png');
         game.load.image('blue3', '/assets/images/Teleport0.png');
