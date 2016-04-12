@@ -19,7 +19,7 @@ var GameScreen = {
         game.load.image('logo', '/assets/images/mission_bit_logo.png');
         game.load.image('blue1', '/assets/images/Teleport2.png');
         game.load.image('blue2', '/assets/images/Teleport3.png');
-        game.load.image('blue3', '/assets/images/Teleport4.png');
+        game.load.image('blue3', '/assets/images/Teleport0.png');
     },
     
     //the create method is run after the preload method
@@ -54,7 +54,16 @@ var GameScreen = {
                     this.temp = game.add.sprite(column*100, row*100,'purple');
                 }
                 if (this.arraymap[row][column] ==='teleport4'){
-                    this.temp = game.add.sprite(column*100, row*100,'blue');
+                    this.temp = game.add.sprite(column*100, row*100,'blue2');
+                }
+                if (this.arraymap[row][column] ==='teleport1'){
+                    this.temp = game.add.sprite(column*100, row*100,'blue0');
+                }
+                if (this.arraymap[row][column] ==='teleport2'){
+                    this.temp = game.add.sprite(column*100, row*100,'blue1');
+                }
+                if (this.arraymap[row][column] ==='teleport3'){
+                    this.temp = game.add.sprite(column*100, row*100,'blue3');
                 }
                 if (this.arraymap[row][column] ==='cripple'){
                     this.temp = game.add.sprite(column*100, row*100,'red');
