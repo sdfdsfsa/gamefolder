@@ -3,7 +3,7 @@ var dice = function () {
     return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
 };
 
-var imagesize = 100;
+var imagesize = 200;
 
 //creates a GameScreen object
 var GameScreen = {
@@ -26,37 +26,41 @@ var GameScreen = {
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         this.arraymap = [
-            ['normal', 'debuff', 'normal', 'normal'],
-            ['normal', 'normal', 'cripple', 'normal'],
-            ['buff', 'normal', 'normal', 'normal']
-//            ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff'],
-//            ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal'],
-//            ['buff', 'normal', 'normal', 'normal', 'normal', 'debuff', 'normal', 'buff']
+            ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
+            ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
+            ['buff', 'normal', 'normal', 'teleport4', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'buff'],
+            ['normal', 'normal', 'teleport3', 'debuff', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff'],
+            ['normal', 'debuff', 'normal', 'normal', 'normal', 'teleport2', 'debuff', 'normal', 'normal', 'normal'],
+            ['normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'normal', 'teleport3', 'normal', 'normal'],
+            ['teleport1', 'normal', 'debuff', 'normal', 'normal', 'buff', 'normal', 'normal', 'cripple', 'normal'],
+            ['normal', 'buff', 'normal', 'normal', 'debuff', 'normal', 'teleport2', 'normal', 'normal', 'normal'],
+            ['debuff', 'normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'normal'],
+            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
         ];
         
         console.log(this.arraymap[0][0]);
-        for (var row = 0; row<2; row++) {
-            for (var column = 0; column < 3; column ++) {
+        for (var row = 0; row<10; row++) {
+            for (var column = 0; column < 10; column ++) {
                 debugger;
                 if (this.arraymap[row][column] === 'normal') 
                 {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'yellow');
+                    this.temp = game.add.sprite(column*100, row*100,'yellow');
                 }
                 if (this.arraymap[row][column] ==='buff')
                     {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'green');
+                    this.temp = game.add.sprite(column*100, row*100,'green');
                     }
                 if (this.arraymap[row][column] ==='debuff') {
-                    this.temp = game.add.sprite(column*200, row*imagesize,'debuff');
+                    this.temp = game.add.sprite(column*100, row*100,'purple');
                 }
                 if (this.arraymap[row][column] ==='teleport4'){
-                    this.temp = game.add.sprite(column*200, row*imagesize,'teleport4');
+                    this.temp = game.add.sprite(column*100, row*100,'blue');
                 }
                 if (this.arraymap[row][column] ==='cripple'){
-                    this.temp = game.add.sprite(column*200, row*10,'cripple');
+                    this.temp = game.add.sprite(column*100, row*100,'red');
                 }
-                this.temp.scale.x = 0.1;
-                this.temp.scale.y = 0.1;
+                this.temp.scale.x = .1;
+                this.temp.scale.y = .1;
         }
          
     }
