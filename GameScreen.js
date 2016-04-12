@@ -1,6 +1,11 @@
 //var arraymap;
+
 var dice = function () {
-    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+//    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    console.log(Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+    var mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
+    
+    mytext.setText('dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1));
 };
 
 var imagesize = 200;
@@ -24,6 +29,9 @@ var GameScreen = {
     //the create method is run after the preload method
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
+        //
+        this.add.button(100, 100, 'Dice', dice, this);
+        
         this.arraymap = [
             ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
             ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
