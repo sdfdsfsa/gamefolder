@@ -16,6 +16,8 @@ var GameScreen = {
     //the preload method runs first
     //it is where we load our assets
     preload : function () {
+        game.load.image('P1', '/assets/images/Apple.png');
+        game.load.image('P2', '/assets/images/Orange.png');
         game.load.image('yellow', 'assets/images/Normal.png');
         game.load.image('green', 'assets/images/Buff.png');
         game.load.image('red', 'assets/images/Cripple.png');
@@ -24,13 +26,15 @@ var GameScreen = {
         game.load.image('blue1', '/assets/images/Teleport2.png');
         game.load.image('blue2', '/assets/images/Teleport3.png');
         game.load.image('blue3', '/assets/images/Teleport0.png');
+        game.load.image('Dice','/assets/images/Dice.png');
+        
     },
     
     //the create method is run after the preload method
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         //
-        this.add.button(100, 100, 'Dice', dice, this);
+        this.add.button(50, 1025, 'Dice', dice, this);
         
         this.arraymap = [
             ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
@@ -80,6 +84,9 @@ var GameScreen = {
         }
          
     }
+        
+        this.add.sprite(15, 915, 'P1');
+        this.add.sprite(-20, 895, 'P2');
 
         
         //starts the physics system for the game
