@@ -34,7 +34,7 @@ var GameScreen = {
     //it is where we set up the basics of the game, essentially what it will look like when we start the game
     create: function () {
         //
-        this.add.button(50, 1025, 'Dice', dice, this);
+        this.add.button(875, 1025, 'Dice', dice, this);
         
         this.arraymap = [
             ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
@@ -85,8 +85,8 @@ var GameScreen = {
          
     }
         
-        this.add.sprite(15, 915, 'P1');
-        this.add.sprite(-20, 895, 'P2');
+        this.add.sprite(15, 1015, 'P1');
+        this.add.sprite(-20, 995, 'P2');
 
         
         //starts the physics system for the game
