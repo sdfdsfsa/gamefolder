@@ -2,6 +2,7 @@
 
 var dice = function () {
 //    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    var a = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
     console.log(Math.floor(Math.random() * (6 - 1 + 1)) + 1);
     var mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
     
@@ -84,9 +85,9 @@ var GameScreen = {
         }
          
     }
-        
-        this.add.sprite(15, 1015, 'P1');
-        this.add.sprite(-20, 995, 'P2');
+        this.add.sprite(10, 10, 'P2');
+        this.add.sprite(0, 0, 'P1');
+
 
         
         //starts the physics system for the game
