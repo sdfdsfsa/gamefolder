@@ -1,12 +1,94 @@
-//var arraymap;
-
+var tempArr = [];
+var orangePlayer, applePlayer;
+var currentOrangePosition = 0;
+var currentApplePosition = 0;
+var orangeOrAppleTurn = true;
+var mytext;
+var diceTimer = 0;
 var dice = function () {
-//    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-    var a = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-    console.log(Math.floor(Math.random() * (6 - 1 + 1)) + 1);
-    var mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
+//    if(game.time.now > diceTimer){
+//            //    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+//        console.log(Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+//    //    mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
+//        this.roll = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+//        mytext.setText('dice: '+this.roll);
+//
+//        if(orangeOrAppleTurn == true){
+//            currentOrangePosition += this.roll;
+//            orangePlayer.x = tempArr[currentOrangePosition].x;
+//            orangePlayer.y = tempArr[currentOrangePosition].y;
+//            orangeOrAppleTurn = false;
+//        }else{
+//            currentApplePosition += this.roll;
+//            applePlayer.x = tempArr[currentApplePosition].x;
+//            applePlayer.y = tempArr[currentApplePosition].y;
+//            orangeOrAppleTurn = true;
+//        }
+//
+//        //9, 23, 
+//        if(currentOrangePosition == 9){
+//            orangePlayer.x = tempArr[23].x;
+//            orangePlayer.y = tempArr[23].y;
+//        }
+//        if(currentApplePosition == 9){
+//            applePlayer.x = tempArr[23].x;
+//            applePlayer.y = tempArr[23].y;
+//        }
+//        //9, 23, 
+//        if(currentOrangePosition == 30){
+//            orangePlayer.x = tempArr[23].x;
+//            orangePlayer.y = tempArr[23].y;
+//        }
+//        if(currentApplePosition == 9){
+//            applePlayer.x = tempArr[23].x;
+//            applePlayer.y = tempArr[23].y;
+//        }
+//
+//        //    currentOrangePosition += this.roll;
+//        //    orangePlayer.x = tempArr[currentOrangePosition].x;
+//        //    orangePlayer.y = tempArr[currentOrangePosition].y;
+//    }
     
-    mytext.setText('dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1));
+//    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    console.log(Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+//    mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
+    this.roll = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+    mytext.setText('dice: '+this.roll);
+    
+    if(orangeOrAppleTurn == true){
+        currentOrangePosition += this.roll;
+        orangePlayer.x = tempArr[currentOrangePosition].x;
+        orangePlayer.y = tempArr[currentOrangePosition].y;
+        orangeOrAppleTurn = false;
+    }else{
+        currentApplePosition += this.roll;
+        applePlayer.x = tempArr[currentApplePosition].x;
+        applePlayer.y = tempArr[currentApplePosition].y;
+        orangeOrAppleTurn = true;
+    }
+    
+    //9, 23, 
+    if(currentOrangePosition == 9){
+        orangePlayer.x = tempArr[23].x;
+        orangePlayer.y = tempArr[23].y;
+    }
+    if(currentApplePosition == 9){
+        applePlayer.x = tempArr[23].x;
+        applePlayer.y = tempArr[23].y;
+    }
+    //9, 23, 
+    if(currentOrangePosition == 30){
+        orangePlayer.x = tempArr[23].x;
+        orangePlayer.y = tempArr[23].y;
+    }
+    if(currentApplePosition == 9){
+        applePlayer.x = tempArr[23].x;
+        applePlayer.y = tempArr[23].y;
+    }
+    
+//    currentOrangePosition += this.roll;
+//    orangePlayer.x = tempArr[currentOrangePosition].x;
+//    orangePlayer.y = tempArr[currentOrangePosition].y;
 };
 
 var imagesize = 200;
@@ -37,6 +119,9 @@ var GameScreen = {
         //
         this.add.button(875, 1025, 'Dice', dice, this);
         
+//        mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
+        mytext = game.add.text(0,0, 'dice: 0', {fontSize: '20px', fill: '#00f'});
+        
         this.arraymap = [
             ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
             ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
@@ -50,10 +135,9 @@ var GameScreen = {
             ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
         ];
         
-        console.log(this.arraymap[0][0]);
         for (var row = 0; row<10; row++) {
             for (var column = 0; column < 10; column ++) {
-                debugger;
+                //debugger;
                 if (this.arraymap[row][column] === 'normal') 
                 {
                     this.temp = game.add.sprite(column*100, row*100,'yellow');
@@ -82,13 +166,21 @@ var GameScreen = {
                 }
                 this.temp.scale.x = .1;
                 this.temp.scale.y = .1;
-        }
+                tempArr.push(this.temp);
+            }
          
-    }
-        this.add.sprite(10, 10, 'P2');
-        this.add.sprite(0, 0, 'P1');
+        }
+        orangePlayer = this.add.sprite(10, 10, 'P2');
+        applePlayer = this.add.sprite(0, 0, 'P1');
 
-
+        //move player to next location
+//        orangePlayer.x = tempArr[12].x;
+//        orangePlayer.y = tempArr[12].y;
+        
+//        console.log('tempArr.length: '+tempArr.length);
+        for(var i=0; i<tempArr.length; i++){
+            console.log(tempArr[i].key);
+        }
         
         //starts the physics system for the game
         game.physics.startSystem(Phaser.Physics.ARCADE);
