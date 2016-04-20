@@ -123,7 +123,7 @@ var GameScreen = {
         mytext = game.add.text(0,0, 'dice: 0', {fontSize: '20px', fill: '#00f'});
         
         this.arraymap = [
-            ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
+            ['buff', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
             ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
             ['buff', 'normal', 'normal', 'teleport4', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'buff'],
             ['normal', 'normal', 'teleport3', 'debuff', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff'],
@@ -132,7 +132,7 @@ var GameScreen = {
             ['teleport1', 'normal', 'debuff', 'normal', 'normal', 'buff', 'normal', 'normal', 'cripple', 'normal'],
             ['normal', 'buff', 'normal', 'normal', 'debuff', 'normal', 'teleport2', 'normal', 'normal', 'normal'],
             ['debuff', 'normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'normal'],
-            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
+            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'normal']
         ];
         
         for (var row = 0; row<10; row++) {
@@ -189,7 +189,7 @@ var GameScreen = {
         this.cursor = game.input.keyboard.createCursorKeys();
         
         //creates a sprite with the 'logo' image at (200, 400) and assigns it to a variable
-        this.mc = game.add.sprite(200, 400, 'logo');
+        this.mc = game.add.sprite(200, 1025, 'logo');
         
         //enables the physics system for the mc
         game.physics.arcade.enable(this.mc);
