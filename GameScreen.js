@@ -3,8 +3,9 @@ var orangePlayer, applePlayer;
 var currentOrangePosition = 0;
 var currentApplePosition = 0;
 var orangeOrAppleTurn = true;
-var mytext;
+var mytext, mytext2;
 var diceTimer = 0;
+var isDebuff = false;
 var dice = function () {
 //    if(game.time.now > diceTimer){
 //            //    return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
@@ -57,42 +58,99 @@ var dice = function () {
     
     if(orangeOrAppleTurn == true){
         currentOrangePosition += this.roll;
+        if(currentOrangePosition > tempArr.length - 1){
+            currentOrangePosition = tempArr.length - 1;
+            mytext2.setText('Winner: Orange');
+        }
         orangePlayer.x = tempArr[currentOrangePosition].x;
         orangePlayer.y = tempArr[currentOrangePosition].y;
         orangeOrAppleTurn = false;
     }else{
         currentApplePosition += this.roll;
+        if(currentApplePosition > tempArr.length - 1){
+            currentApplePosition = tempArr.length - 1;
+            mytext2.setText('Winner: Apple');
+        }
         applePlayer.x = tempArr[currentApplePosition].x;
         applePlayer.y = tempArr[currentApplePosition].y;
         orangeOrAppleTurn = true;
     }
     
-    //9, 23, 
+    
+//    Normal
+//    Teleport: only jump forward not jump back
+        //9, 23, 
+    if(currentApplePosition == 9){
+        applePlayer.x = tempArr[23].x;
+        applePlayer.y = tempArr[23].y;
+    }
     if(currentOrangePosition == 9){
         orangePlayer.x = tempArr[23].x;
         orangePlayer.y = tempArr[23].y;
     }
-    if(currentApplePosition == 9){
-        applePlayer.x = tempArr[23].x;
-        applePlayer.y = tempArr[23].y;
+     // 32 - 57
+    if(currentApplePosition == 32){
+        applePlayer.x = tempArr[57].x;
+        applePlayer.y = tempArr[57].y;
     }
-    //9, 23, 
-    if(currentOrangePosition == 30){
-        orangePlayer.x = tempArr[23].x;
-        orangePlayer.y = tempArr[23].y;
+    if(currentOrangePosition == 32){
+        orangePlayer.x = tempArr[47].x;
+        orangePlayer.y = tempArr[47].y;
     }
-    if(currentApplePosition == 9){
-        applePlayer.x = tempArr[23].x;
-        applePlayer.y = tempArr[23].y;
+    //45-76
+    if(currentApplePosition == 45){
+        applePlayer.x = tempArr[76].x;
+        applePlayer.y = tempArr[76].y;
+    }
+    if(currentOrangePosition == 45){
+        orangePlayer.x = tempArr[76].x;
+        orangePlayer.y = tempArr[76].y;
     }
     
-    if(currentApplePosition ==1 || currentApplePosition == 4 || currentApplePosition == 7 || currentApplePosition == 27 || currentApplePosition ==  33 || currentApplePosition ==  39 || currentApplePosition ==  41 ||currentApplePosition == 46 ||currentApplePosition ==62 || currentApplePosition == 74 || currentApplePosition == 80 || currentApplePosition == 87 || currentApplePosition == 96){
-        console.log("You landed on debuff");
+    //70-93
+    if(currentOrangePosition == 70){
+        orangePlayer.x = tempArr[93].x;
+        orangePlayer.y = tempArr[93].y;
+    }
+    if(currentApplePosition == 70){
+        applePlayer.x = tempArr[93].x;
+        applePlayer.y = tempArr[93].y;
+    }
+        
+ //   Buff: have another turn
+    
+    if(currentApplePosition == 15 || currentApplePosition == 20 || 
+       currentApplePosition == 29 || currentApplePosition == 65 || currentApplePosition == 71 || currentApplePosition == 90 ) {
+        orangeOrAppleTurn = false;
+    }
+    if(currentOrangePosition == 15 || currentOrangePosition == 20 || 
+       currentOrangePosition == 29 || currentOrangePosition == 65 || currentOrangePosition == 71 || currentOrangePosition == 90){
+        orangeOrAppleTurn = true;
     }
     
-    if(currentApplePosition == 2 || currentApplePosition == 3 || currentApplePosition == 5 || currentApplePosition == 6 || currentApplePosition == 8 || currentApplePosition == 10 || currentApplePosition == 11 || currentApplePosition == 13 || currentApplePosition == 14 || currentApplePosition == 16 || currentApplePosition == 17 || currentApplePosition == 18 || currentApplePosition == 19 || currentApplePosition == 21 || currentApplePosition == 22 || currentApplePosition ==  25 || currentApplePosition == 26 || currentApplePosition == 28 || currentApplePosition == 30 || currentApplePosition == 31 || currentApplePosition == 34 || currentApplePosition == 35 || currentApplePosition == 37 || currentApplePosition == 38 || currentApplePosition == 40  || currentApplePosition == 42 || currentApplePosition == 43 || currentApplePosition == 44 || currentApplePosition == 45 || currentApplePosition == 47 || currentApplePosition == 48 || currentApplePosition == 49 || currentApplePosition == 50 || currentApplePosition == 51  || currentApplePosition == 52 || currentApplePosition == 54 || currentApplePosition == 55 || currentApplePosition == 56 || currentApplePosition == 58 || currentApplePosition == 59 || currentApplePosition == 61 || currentApplePosition == 63 || currentApplePosition == 64 || currentApplePosition == 66 || currentApplePosition == 67 || currentApplePosition == 69 || currentApplePosition == 70 || currentApplePosition == 72 || currentApplePosition == 73 || currentApplePosition == 75 || currentApplePosition == 77 || currentApplePosition == 78 || currentApplePosition == 79 || currentApplePosition == 80 || currentApplePosition == 81 || currentApplePosition == 82 || currentApplePosition == 83 || currentApplePosition == 85 || currentApplePosition == 86 || currentApplePosition == 88 || currentApplePosition == 89 || currentApplePosition == 91 || currentApplePosition == 92 || currentApplePosition == 94 || currentApplePosition == 95 || currentApplePosition == 97 || currentApplePosition == 98 || currentApplePosition == 99){
-        console.log( "You landed on normal");
+    // cripple
+    if(currentApplePosition == 12 || currentApplePosition == 24 || 
+       currentApplePosition == 36 || currentApplePosition == 53 || currentApplePosition == 68 || currentApplePosition == 84) {
+        currentOrangePosition += (this.roll) * -1;
     }
+    if(currentApplePosition == 12 || currentApplePosition == 24 || 
+       currentApplePosition == 36 || currentApplePosition == 53 || currentApplePosition == 68 || currentApplePosition == 846){
+        currentApplePosition += (this.roll) * -1;
+    }
+    
+//debuff blocks:
+//       currentApplePosition == 1 || currentApplePosition == 4 || 
+//       currentApplePosition == 7 || currentApplePosition == 27 || currentApplePosition == 33 || currentApplePosition == 39 || currentApplePosition == 41 || currentApplePosition == 46 || currentApplePosition == 62 ||     //       currentApplePosition == 74 || currentApplePosition == 80 || currentApplePosition == 87 || currentApplePosition == 96
+    
+    
+//    if(currentOrangePosition == 30){
+//        orangePlayer.x = tempArr[23].x;
+//        orangePlayer.y = tempArr[23].y;
+//    }
+//    if(currentApplePosition == 9){
+//        applePlayer.x = tempArr[23].x;
+//        applePlayer.y = tempArr[23].y;
+//    }
     
 //    currentOrangePosition += this.roll;
 //    orangePlayer.x = tempArr[currentOrangePosition].x;
@@ -129,9 +187,10 @@ var GameScreen = {
         
 //        mytext = game.add.text(0,0, 'dice: '+(Math.floor(Math.random() * (6 - 1 + 1)) + 1), {fontSize: '20px', fill: '#00f'});
         mytext = game.add.text(0,0, 'dice: 0', {fontSize: '20px', fill: '#00f'});
+        mytext2 = game.add.text(game.world.width - 150,0, 'Winner: ', {fontSize: '20px', fill: '#00f'});
         
         this.arraymap = [
-            ['buff', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
+            ['normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'normal', 'debuff', 'normal', 'teleport4'],
             ['normal', 'normal', 'cripple', 'normal', 'normal', 'buff', 'normal', 'normal', 'normal', 'normal'],
             ['buff', 'normal', 'normal', 'teleport4', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'buff'],
             ['normal', 'normal', 'teleport3', 'debuff', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff'],
@@ -140,7 +199,7 @@ var GameScreen = {
             ['teleport1', 'normal', 'debuff', 'normal', 'normal', 'buff', 'normal', 'normal', 'cripple', 'normal'],
             ['normal', 'buff', 'normal', 'normal', 'debuff', 'normal', 'teleport2', 'normal', 'normal', 'normal'],
             ['debuff', 'normal', 'normal', 'normal', 'cripple', 'normal', 'normal', 'debuff', 'normal', 'normal'],
-            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'normal']
+            ['buff', 'normal', 'normal', 'teleport1', 'normal', 'normal', 'debuff', 'normal', 'normal', 'buff']
         ];
         
         for (var row = 0; row<10; row++) {
@@ -197,7 +256,7 @@ var GameScreen = {
         this.cursor = game.input.keyboard.createCursorKeys();
         
         //creates a sprite with the 'logo' image at (200, 400) and assigns it to a variable
-        this.mc = game.add.sprite(200, 1025, 'logo');
+        this.mc = game.add.sprite(200, 400, 'logo');
         
         //enables the physics system for the mc
         game.physics.arcade.enable(this.mc);
@@ -213,6 +272,7 @@ var GameScreen = {
     //function that is called 60 times per second
     //where we put the logic of the game
     update: function() {
+        console.log(orangeOrAppleTurn);
         //if the right arrow is pressed, move to the right
         if (this.cursor.right.isDown) {
             this.mc.body.velocity.x = 350;
