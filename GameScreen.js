@@ -86,6 +86,14 @@ var dice = function () {
         applePlayer.y = tempArr[23].y;
     }
     
+    if(currentApplePosition ==1 || currentApplePosition == 4 || currentApplePosition == 7 || currentApplePosition == 27 || currentApplePosition ==  33 || currentApplePosition ==  39 || currentApplePosition ==  41 ||currentApplePosition == 46 ||currentApplePosition ==62 || currentApplePosition == 74 || currentApplePosition == 80 || currentApplePosition == 87 || currentApplePosition == 96){
+        console.log("You landed on debuff");
+    }
+    
+    if(currentApplePosition == 2 || currentApplePosition == 3 || currentApplePosition == 5 || currentApplePosition == 6 || currentApplePosition == 8 || currentApplePosition == 10 || currentApplePosition == 11 || currentApplePosition == 13 || currentApplePosition == 14 || currentApplePosition == 16 || currentApplePosition == 17 || currentApplePosition == 18 || currentApplePosition == 19 || currentApplePosition == 21 || currentApplePosition == 22 || currentApplePosition ==  25 || currentApplePosition == 26 || currentApplePosition == 28 || currentApplePosition == 30 || currentApplePosition == 31 || currentApplePosition == 34 || currentApplePosition == 35 || currentApplePosition == 37 || currentApplePosition == 38 || currentApplePosition == 40  || currentApplePosition == 42 || currentApplePosition == 43 || currentApplePosition == 44 || currentApplePosition == 45 || currentApplePosition == 47 || currentApplePosition == 48 || currentApplePosition == 49 || currentApplePosition == 50 || currentApplePosition == 51  || currentApplePosition == 52 || currentApplePosition == 54 || currentApplePosition == 55 || currentApplePosition == 56 || currentApplePosition == 58 || currentApplePosition == 59 || currentApplePosition == 61 || currentApplePosition == 63 || currentApplePosition == 64 || currentApplePosition == 66 || currentApplePosition == 67 || currentApplePosition == 69 || currentApplePosition == 70 || currentApplePosition == 72 || currentApplePosition == 73 || currentApplePosition == 75 || currentApplePosition == 77 || currentApplePosition == 78 || currentApplePosition == 79 || currentApplePosition == 80 || currentApplePosition == 81 || currentApplePosition == 82 || currentApplePosition == 83 || currentApplePosition == 85 || currentApplePosition == 86 || currentApplePosition == 88 || currentApplePosition == 89 || currentApplePosition == 91 || currentApplePosition == 92 || currentApplePosition == 94 || currentApplePosition == 95 || currentApplePosition == 97 || currentApplePosition == 98 || currentApplePosition == 99){
+        console.log( "You landed on normal");
+    }
+    
 //    currentOrangePosition += this.roll;
 //    orangePlayer.x = tempArr[currentOrangePosition].x;
 //    orangePlayer.y = tempArr[currentOrangePosition].y;
@@ -205,7 +213,6 @@ var GameScreen = {
     //function that is called 60 times per second
     //where we put the logic of the game
     update: function() {
-    
         //if the right arrow is pressed, move to the right
         if (this.cursor.right.isDown) {
             this.mc.body.velocity.x = 350;
