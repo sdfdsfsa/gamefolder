@@ -79,7 +79,6 @@ var dice = function () {
     
 //    Normal
 //    Teleport: only jump forward not jump back
-        //9, 23, 
     if(currentApplePosition == 9){
         applePlayer.x = tempArr[23].x;
         applePlayer.y = tempArr[23].y;
@@ -116,7 +115,6 @@ var dice = function () {
         applePlayer.x = tempArr[93].x;
         applePlayer.y = tempArr[93].y;
     }
-        
  //   Buff: have another turn
     
     if(currentApplePosition == 15 || currentApplePosition == 20 || 
@@ -129,32 +127,20 @@ var dice = function () {
     }
     
     // cripple
-    if(currentApplePosition == 12 || currentApplePosition == 24 || 
-       currentApplePosition == 36 || currentApplePosition == 53 || currentApplePosition == 68 || currentApplePosition == 84) {
+    if(currentApplePosition == 1 || currentApplePosition == 4 || 
+       currentApplePosition == 7 || currentApplePosition == 27 || currentApplePosition == 33 || currentApplePosition == 39 || currentApplePosition == 41 || currentApplePosition == 46 || currentApplePosition == 62 || currentApplePosition == 74 || currentApplePosition == 80 || currentApplePosition == 87 || currentApplePosition == 96) {
         currentOrangePosition += (this.roll) * -1;
     }
-    if(currentApplePosition == 12 || currentApplePosition == 24 || 
-       currentApplePosition == 36 || currentApplePosition == 53 || currentApplePosition == 68 || currentApplePosition == 846){
+    if(currentOrangePosition == 1 || currentOrangePosition == 4 || 
+       currentOrangePosition == 7 || currentOrangePosition == 27 || currentOrangePosition == 33 || currentOrangePosition == 39 || currentOrangePosition == 41 || currentOrangePosition == 46 || currentOrangePosition == 62 || currentOrangePosition == 74 || currentOrangePosition == 80 || currentOrangePosition == 87 || currentOrangePosition == 96){
         currentApplePosition += (this.roll) * -1;
-    }
-    
-//debuff blocks:
+        
+    //debuff blocks:
 //       currentApplePosition == 1 || currentApplePosition == 4 || 
 //       currentApplePosition == 7 || currentApplePosition == 27 || currentApplePosition == 33 || currentApplePosition == 39 || currentApplePosition == 41 || currentApplePosition == 46 || currentApplePosition == 62 ||     //       currentApplePosition == 74 || currentApplePosition == 80 || currentApplePosition == 87 || currentApplePosition == 96
+    }
     
-    
-//    if(currentOrangePosition == 30){
-//        orangePlayer.x = tempArr[23].x;
-//        orangePlayer.y = tempArr[23].y;
-//    }
-//    if(currentApplePosition == 9){
-//        applePlayer.x = tempArr[23].x;
-//        applePlayer.y = tempArr[23].y;
-//    }
-    
-//    currentOrangePosition += this.roll;
-//    orangePlayer.x = tempArr[currentOrangePosition].x;
-//    orangePlayer.y = tempArr[currentOrangePosition].y;
+
 };
 
 var imagesize = 200;
@@ -291,4 +277,3 @@ var GameScreen = {
 
 //    this.tween = game.add.tween(aliens).to( { y: 300}, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 };
-    
